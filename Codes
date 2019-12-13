@@ -1,0 +1,81 @@
+In Layout
+
+
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/compat_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:showText="false"
+        android:thumb="@drawable/thumb"
+        app:track="@drawable/track"/>
+        
+        
+        
+
+To change thumb,
+
+           <?xml version="1.0" encoding="utf-8"?>
+           <selector xmlns:android="http://schemas.android.com/apk/res/android">
+               <item android:state_checked="false">
+                   <shape android:shape="oval">
+                       <solid android:color="#FFFFFF" />
+                       <size android:width="@dimen/_30sdp"
+                           android:height="@dimen/_30sdp" />
+                       <stroke android:width="2dp"
+                           android:color="#8e8e8e"/>
+                   </shape>
+               </item>
+           
+               <item android:state_checked="true">
+                   <shape android:shape="oval">
+                       <solid android:color="#FFFFFF" />
+                       <size android:width="@dimen/_30sdp"
+                           android:height="@dimen/_30sdp" />
+                       <stroke android:width="2dp"
+                           android:color="@color/md_green_500"/>
+                   </shape>
+               </item>
+           </selector>
+
+
+To change track,
+
+         <?xml version="1.0" encoding="utf-8"?>
+         <selector xmlns:android="http://schemas.android.com/apk/res/android">
+             <item android:state_checked="false">
+                 <shape android:shape="rectangle">
+                     <solid android:color="#FFFFFF" />
+                     <corners android:radius="25dp" />
+                     <stroke android:width="2dp" android:color="#8e8e8e" />
+                 </shape>
+             </item>
+         
+             <item android:state_checked="true">
+                 <shape android:shape="rectangle">
+                     <solid android:color="#34c759" />
+                     <corners android:radius="25dp" />
+                 </shape>
+             </item>
+         </selector>
+
+
+
+Code :
+
+        compat.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener {
+            override fun onCheckedChanged(compoundButton: CompoundButton?, isChecked: Boolean) {
+
+                if(isChecked){
+                    Toast.makeText(this@MVP3, "Checked", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(this@MVP3, "UnChecked", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        })
+
+
+:D
+
+Happy Coding ..!
